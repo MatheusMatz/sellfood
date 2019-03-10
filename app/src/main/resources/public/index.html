@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head> 
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <title>Cardapio</title>
+
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/style.css">
+
+    
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    
+
+  </head>
+  <body>
+    
+      <div id = "card-principal" class="container card shadow  ">
+
+        <div class="card-body row">
+        
+        <div class=" col bg-white card cardapio">
+         
+          <h3 id="titulo" class="card-title text-md-left "></h3>
+          
+              <ul class="nav nav-tabs">
+                  <li ><a href="#first-tab" class="nav-link active" data-toggle="tab">Cardapio</a></li>
+                  <li ><a href="#second-tab" class="nav-link" data-toggle="tab">Crie</a></li>
+              </ul>
+
+              <div class="tab-content">
+                  <div class="tab-pane active in" id="first-tab" data-toggle="tab">
+                      <p>
+                          Escolha as opções de lanches disponiveis em nosso cardapio.
+                      </p>
+                        <br/>
+                    <ul id="cardapio" class="list-group list-group-flush " ></ul>
+                  </div> 
+                 
+                  <div class="tab-pane" id="second-tab" data-toggle="tab">
+                    <p>
+                        Monte um lanche com os ingredientes de sua escolha.
+                    </p>
+                    <p class="row">
+                      <div class="col form-group flex ">
+                        <label for="qtdLanchePersonalizado">quantidade do lanche</label>
+                        <input id="qtdLanchePersonalizado" class="form-control " type="number" value="1" maxlength="10" min="1" >
+                      </div>
+                    </p>  
+                      <ul id="ingredientes" class="list-group list-group-flush " ></ul>
+                      <footer>
+                          <div class="btn-toolbar justify-content-between d-inline-flex" role="toolbar">
+                              <div class="input-group">
+                                  <input id="total" type="text" class="money form-control"  readonly="true">
+                              </div>
+                              <div class="btn-group" role="group">
+                                  <button id="button-aceitar" onclick="montarPersonalizado()" >Aceitar</button>
+                              </div>
+                        </footer>
+                  </div>
+                
+              </div>
+    
+        </div>
+        
+        <div class="col-1">
+          
+        </div>
+      
+        <div id="comanda" class="col card">
+            <h3>Pedido</h3>
+            <ul id="promocoes" class="list-group"></ul>
+            <!-- <ul id="lanches" class="list-group"></ul> -->
+            <footer>
+              <div class="input-group">
+                <div class="input-group-prepend">
+                  <span class="input-group-text">$</span>
+                </div>
+               
+                
+              </div>
+              <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
+                
+                </div>
+
+              <div class="btn-toolbar justify-content-between d-inline-flex" role="toolbar">
+                <div class="input-group">
+                    <input id = "totalPedido" type="text" class="money form-control"  readonly="true" value="0">
+                    <div id="preco"></div>
+                </div>
+                <div class="btn-group" role="group">
+                  <button id="button-aceitar" class="btn btn-secondary" onclick="enviarPedido()" >Enviar</button>
+                </div>
+
+            </footer>
+        </div>
+        
+      </div>
+
+
+        
+    </div>
+
+    <div id="resumo" class="modal" tabindex="-1" role="dialog">
+          <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
+              <div class="modal-content">
+                <div class="modal-header">
+                  <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                  <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <ul id="lanchesDoPedido" class="list-group list-group-flush container"></ul>
+                </div>
+                <div class="modal-footer">
+                    <p class="moeda ">Total R$</p>
+                    <h3 id="totalCompra" class="preco"></h3>
+                </div>
+              </div>
+            </div>
+      </div>
+
+  </body>
+
+  <script src="./js/jquery.mask.js"></script>
+    <script src="./js/mascaras.js"></script>
+
+    <script src="./js/montarCardapio.js"></script>
+    <script src="./js/enviarPedido.js"></script>
+    <script src="./js/montarPedido.js"></script>
+    <script src="./js/montarPersonalizado.js"></script>
+    <script src="./js/montaComanda.js"></script>   
+    <script src="./js/buscaIngredientes.js"></script>
+
+</html>
