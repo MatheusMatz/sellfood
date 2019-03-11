@@ -5,7 +5,7 @@ jdk:
 
 install: true
 script:
-  - ./mvnw clean install
+  - ./app/mvnw clean install
   - bash <(curl -s https://codecov.io/bash)
 
 deploy:
