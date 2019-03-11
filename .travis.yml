@@ -11,9 +11,6 @@ script:
 deploy:
     -
     on:
-      branch: release
-    provider: bintray
-    skip_cleanup: true
-    file: target/bin/bintray.json
-    user: nfrankel
-    key: $BINTRAY_API_KEY
+      branch: master
+    user: MatheusMatz
+    key: $GITHUB_TOKEN
