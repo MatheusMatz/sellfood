@@ -24,6 +24,16 @@ services:
    ports:
    - "3306:3306"
    restart: always
+   volumes:  
+    - ./data/db:/var/lib/mysql  
+
+  dump:  
+   build: Dumper/  
+   volumes:  
+    - ./Dumper/:/var/db/  
+   command: sh -c "sleep 20 && /usr/bin/mysql -h sabores -u root -psabores < ./backup.sql"  
+   depends_on:  
+    - mysql 
   
   app:
     container_name: sabores_app
