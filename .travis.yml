@@ -9,8 +9,9 @@ script:
   - bash <(curl -s https://codecov.io/bash)
 
 deploy:
-    -
-    on:
-      branch: master
-    user: MatheusMatz
-    key: $GITHUB_TOKEN
+  provider: pages
+  skip-cleanup: true
+  github-token: $GITHUB_TOKEN
+  keep-history: true
+  on:
+    branch: master
