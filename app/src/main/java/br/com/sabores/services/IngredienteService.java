@@ -1,5 +1,6 @@
 package br.com.sabores.services;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.transaction.Transactional;
@@ -36,6 +37,19 @@ public class IngredienteService {
 
 	public IngredienteEntity salvarTodos(List<IngredienteEntity> ingredientes) {
 		return (IngredienteEntity) repository.saveAll(ingredientes);
+	}
+	
+	public List<IngredienteEntity> buscarVarios(List<IngredienteEntity> ingredientes){
+		List<IngredienteEntity> ingredientesEncontrados = new ArrayList<>();
+		
+		ingredientes.forEach(ingrediente -> {
+			IngredienteEntity result = repository.findByNome(ingrediente.getNome());
+			if (result != null) {
+				ingredientesEncontrados.add(result);
+			}
+		});
+		
+		return ingredientesEncontrados;
 	}
 
 	public ResponseEntity<IngredienteEntity> atualizarIngrediente(String nomeIngrediente, IngredienteEntity novoIngrediente) {

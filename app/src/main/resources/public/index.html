@@ -25,16 +25,16 @@
         
         <div class=" col bg-white card cardapio">
          
-          <h3 id="titulo" class="card-title text-md-left "></h3>
+          <h3 id="titulo" class="card-title text-md-left font-weight-bold"></h3>
           
-              <ul class="nav nav-tabs">
-                  <li ><a href="#first-tab" class="nav-link active" data-toggle="tab">Cardapio</a></li>
-                  <li ><a href="#second-tab" class="nav-link" data-toggle="tab">Crie</a></li>
+              <ul class="nav nav-tabs ">
+                  <li ><div href="#first-tab" class="nav-link active font-weight-bold text-decoration-none" data-toggle="tab">Cardápio</div></li>
+                  <li ><div href="#second-tab" class="nav-link font-weight-bold text-decoration-none" data-toggle="tab">Crie</div></li>
               </ul>
 
               <div class="tab-content">
                   <div class="tab-pane active in" id="first-tab" data-toggle="tab">
-                      <p>
+                      <p class="texto">
                           Escolha as opções de lanches disponiveis em nosso cardapio.
                       </p>
                         <br/>
@@ -42,23 +42,23 @@
                   </div> 
                  
                   <div class="tab-pane" id="second-tab" data-toggle="tab">
-                    <p>
+                    <p class="texto">
                         Monte um lanche com os ingredientes de sua escolha.
                     </p>
                     <p class="row">
                       <div class="col form-group flex ">
-                        <label for="qtdLanchePersonalizado">quantidade do lanche</label>
+                        <label for="qtdLanchePersonalizado" class="font-weight-bold">quantidade do lanche</label>
                         <input id="qtdLanchePersonalizado" class="form-control " type="number" value="1" maxlength="10" min="1" >
                       </div>
                     </p>  
                       <ul id="ingredientes" class="list-group list-group-flush " ></ul>
                       <footer>
-                          <div class="btn-toolbar justify-content-between d-inline-flex" role="toolbar">
+                          <div class="btn-toolbar justify-content-between d-inline-flex " role="toolbar">
                               <div class="input-group">
                                   <input id="total" type="text" class="money form-control"  readonly="true">
                               </div>
                               <div class="btn-group" role="group">
-                                  <button id="button-aceitar" onclick="montarPersonalizado()" >Aceitar</button>
+                                  <button id="button-aceitar" class="btn btn-secondary" onclick="montarPersonalizado()" >Aceitar</button>
                               </div>
                         </footer>
                   </div>
@@ -72,9 +72,19 @@
         </div>
       
         <div id="comanda" class="col card">
-            <h3>Pedido</h3>
-            <ul id="promocoes" class="list-group"></ul>
-            <!-- <ul id="lanches" class="list-group"></ul> -->
+            <h3 class="font-weight-bold">Pedido</h3>
+            <div class="accordion" id="accordionExample">
+                    <h2 class="mb-0">
+                      <button class="btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        Promoções
+                      </button>
+                    </h2>
+            </div>
+            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+              <ul id="promocoes" class="list-group"></ul>
+
+            </div>
+            <ul id="lanches" class="list-group"></ul>
             <footer>
               <div class="input-group">
                 <div class="input-group-prepend">
@@ -84,18 +94,16 @@
                 
               </div>
               <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
-                
+                <div class="btn-toolbar justify-content-between d-inline-flex" role="toolbar">
+                    <div class="input-group">
+                      <input id = "totalPedido" type="text" class="money form-control"  readonly="true" value="0">
+                      <div id="preco"></div>
+                    </div>
+                    <div class="btn-group" role="group">
+                      <button id="button-aceitar" class="btn btn-secondary" onclick="enviarPedido()" >Enviar</button>
+                    </div>
                 </div>
-
-              <div class="btn-toolbar justify-content-between d-inline-flex" role="toolbar">
-                <div class="input-group">
-                    <input id = "totalPedido" type="text" class="money form-control"  readonly="true" value="0">
-                    <div id="preco"></div>
-                </div>
-                <div class="btn-group" role="group">
-                  <button id="button-aceitar" class="btn btn-secondary" onclick="enviarPedido()" >Enviar</button>
-                </div>
-
+              </div>
             </footer>
         </div>
         
@@ -125,10 +133,27 @@
             </div>
       </div>
 
-  </body>
+      <div class="modal fade" id="confirmaInclusao" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+            <div class="modal-body">
+              <ul id="resumoIngredientes" class="list-group"></ul>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+              <button type="button" class="btn btn-primary">Save changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
 
-  <script src="./js/jquery.mask.js"></script>
-    <script src="./js/mascaras.js"></script>
+  </body>
 
     <script src="./js/montarCardapio.js"></script>
     <script src="./js/enviarPedido.js"></script>

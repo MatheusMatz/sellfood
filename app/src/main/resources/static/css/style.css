@@ -59,8 +59,6 @@ input[type="number"] {
     max-height: 450px;
     margin-bottom: 10px;
     overflow-y:scroll;
-    /* border: 1px solid; */
-    /* border-color: lightsteelblue; */
 }
 
 .list-group-item{
@@ -74,4 +72,50 @@ input[type="number"] {
 
 .list-group::-webkit-scrollbar { 
 	display: none;
+}
+
+#card-principal{
+    background-image: linear-gradient(to top, #f77202 ,#f7b135);
+}
+
+.abas{
+    background-color: #f74500;
+}
+
+h3 {
+    color: #f74500;
+}
+
+button{
+    background-color: #f77202!important;
+}
+
+.nome{
+}
+
+.moeda{
+    font-stretch: condensed;
+}
+
+.preco{
+    color: #f74500;
+}
+
+a {
+    text-decoration: none!important;
+    color: #f77202;
+}
+
+.nav-link {
+    text-decoration: none!important;
+    color: #f77202;
+}
+
+.texto{
+    margin: 5px;
+}
+
+ul{
+    border-top: whitesmoke solid;
+    border-bottom: whitesmoke solid;
 }

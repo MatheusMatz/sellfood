@@ -5,7 +5,6 @@ function enviarPedido () {
     var pedidos = {}
         pedidos.lanches = lanches;
     
-
         $.ajax({
             type: "POST",
             url: "http://localhost/pedido/efetuar",
@@ -22,12 +21,13 @@ function enviarPedido () {
                         let totalValorLanche = lancheIgual.reduce(( prevVal, elem ) => { return prevVal + elem.valor }, 0 );
                         let qtdLanche = lancheIgual.reduce(( prevVal, elem , index) => { return index});
                         
+
                         if (nomeLanche != lanche.nome) {
                             $('#lanchesDoPedido').append(`
                                 <li class="list-group-item row align-items-start">
                                     <div class="col">
                                         ${qtdLanche +" x "+ lanche.nome}
-                                        <div class="valorLanche">R$ ${totalValorLanche}</div>
+                                        <div class="valorLanche">R$ ${parseFloat(totalValorLanche).toFixed(2)}</div>
                                     </div>
                                 </li>
                             `)
@@ -38,9 +38,9 @@ function enviarPedido () {
 
                         
                     })
-                    $('#totalCompra').text(data.valor)
-                    
-                        return t = data.lanches
-                    
+                    $('#totalCompra').text(parseFloat(data.valor).toFixed(2))
             });
+
+            $(".qtdLanche").val(0);
+            $("#totalPedido").val(0);
         }

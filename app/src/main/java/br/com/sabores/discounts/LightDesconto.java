@@ -21,9 +21,10 @@ public class LightDesconto implements Desconto {
 
 	@Override
 	public void desconta(LancheEntity lanche) {
-		int frequency = Collections.frequency(lanche.getIngredientes(), new IngredienteEntity("Bacon"));
+		int frequenciaBancon = Collections.frequency(lanche.getIngredientes(), new IngredienteEntity("Bacon"));
+		int frequenciaAlface = Collections.frequency(lanche.getIngredientes(), new IngredienteEntity("Alface"));
 		
-		if(frequency == 0) {
+		if(frequenciaBancon == 0 && frequenciaAlface > 0) {
 			MonetaryAmount amount = DinheiroUtil.bigDecimalToMonetaryAmount(lanche.getValor());
 			BigDecimal valorComDesconto = DinheiroUtil.monetaryAmountToBigDecimal(amount.subtract(amount.multiply(0.10)));
 			lanche.setValor(valorComDesconto);

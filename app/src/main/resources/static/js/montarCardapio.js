@@ -2,7 +2,7 @@ $("#cardapio").ready(()=>{
 
     var renderIngredientes = function(e){
         var a = [];
-        e.forEach(element => a.push(element.nome))
+        e.forEach(element => a.push(" " + element.nome + " "))
         return a;
       }
   
@@ -31,9 +31,9 @@ $("#cardapio").ready(()=>{
                   </div>
                   <div class="font-weight-light ingredientes flex">${renderIngredientes(lanche.ingredientes)}</div>
                     <div class="flex">
-                      <p class="moeda ">R$</p><div class="preco">${lanche.valor}</div>
+                      <p class="moeda font-weight-bold">R$</p><div class="preco font-weight-bold">${parseFloat(lanche.valor).toFixed(2)}</div>
                         <div class="button-group flex ">
-                            <label>qtd<label/>
+                            <label class="font-weight-bold">qtd<label/>
                             <input class="qtdLanche form-control" type="number" value="0" maxlength="10" min="0" >
                         </div>  
                     </div>
@@ -55,7 +55,7 @@ $("#cardapio").ready(()=>{
               let resultado = totalPedido.reduce((total, valor)=> total + valor.valor, 0)
   
   
-              $("#totalPedido").val(resultado);
+              $("#totalPedido").val(parseFloat(resultado.toFixed(2)));
   
           });
   

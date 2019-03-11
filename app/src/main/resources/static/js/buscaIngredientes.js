@@ -12,10 +12,10 @@ $("#ingredientes").ready(() => {
             <div class="nome  font-weight-bold">${ingrediente.nome}</div>
         
         <div class="flex">
-        <p class="moeda ">R$<p/><div class="preco">${ingrediente.valor}</div>
+        <p class="moeda font-weight-bold">R$<p/><div class="preco font-weight-bold">${parseFloat(ingrediente.valor).toFixed(2)}</div>
         <div class="button-group flex ">
-            <label>qtd<label/>
-            <input class="qtdIngrediente form-control" type="number" value="0" maxlength="10" min="0" >
+            <label class="font-weight-bold">qtd<label/>
+            <input class="qtdIngrediente form-control " type="number" value="0" maxlength="10" min="0" >
         </div>  
         </div>
         </li>`)
@@ -35,7 +35,7 @@ $("#ingredientes").ready(() => {
         adicionarIngredientes(ingrediente,qtd,total)
         let resultado = totalValor.reduce((total, valor)=> total + valor.valor, 0)
 
-        $("#total").val(resultado);
+        $("#total").val(parseFloat(resultado).toFixed(2));
 
     });
     
