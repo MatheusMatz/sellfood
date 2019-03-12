@@ -12,17 +12,13 @@ será criado os container necessários para manter a aplicação, como o nginx e
 
 É necessário que tenha instalado o docker na máquina que será usada para a aplicação.
 
-```
-Give examples
-```
-
 ### Execução 
 
-executar o comando docker-compose up -d
+Execute o comando docker-compose up na raiz do projeto
 
+Após os containers estarem funcionando abra um segundo terminal e execute o seguinte comando
 
-## Running the tests
-
+cat .\Dumper\backup.sql | docker exec -i mysql /usr/bin/mysql -u root --password=sabores sabores
 
 ### Justificativa do design de código
 
@@ -80,6 +76,7 @@ Foram criadas classes de testes para as principais funcionalidades (calculo dos 
 
 ## Deployment
 
+Atualmente o travis esta configurado para executar o build.
 
 ## Built With
 
