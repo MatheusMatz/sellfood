@@ -17,107 +17,107 @@
     
 
   </head>
-  <body>
-    
-      <div id = "card-principal" class="container card shadow  ">
+  <body class="text-center">
 
-        <div class="card-body row">
-        
-        <div class=" col bg-white card cardapio">
-         
-          <h3 id="titulo" class="card-title text-md-left font-weight-bold"></h3>
-          
-              <ul class="nav nav-tabs ">
-                  <li ><div href="#first-tab" class="nav-link active font-weight-bold text-decoration-none" data-toggle="tab">Cardápio</div></li>
-                  <li ><div href="#second-tab" class="nav-link font-weight-bold text-decoration-none" data-toggle="tab">Crie</div></li>
-              </ul>
+      <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
 
-              <div class="tab-content">
-                  <div class="tab-pane active in" id="first-tab" data-toggle="tab">
-                      <p class="texto">
-                          Escolha as opções de lanches disponiveis em nosso cardapio.
-                      </p>
-                        <br/>
-                    <ul id="cardapio" class="list-group list-group-flush " ></ul>
-                  </div> 
-                 
-                  <div class="tab-pane" id="second-tab" data-toggle="tab">
-                    <p class="texto">
-                        Monte um lanche com os ingredientes de sua escolha.
-                    </p>
-                    <p class="row">
-                      <div class="col form-group flex ">
-                        <label for="qtdLanchePersonalizado" class="font-weight-bold">quantidade do lanche</label>
-                        <input id="qtdLanchePersonalizado" class="form-control " type="number" value="1" maxlength="10" min="1" >
-                      </div>
-                    </p>  
-                      <ul id="ingredientes" class="list-group list-group-flush " ></ul>
-                      <footer>
-                          <div class="btn-toolbar justify-content-between d-inline-flex " role="toolbar">
-                              <div class="input-group">
-                                  <input id="total" type="text" class="money form-control"  readonly="true">
+          <header class="masthead mb-auto">
+            <div class="inner">
+              <h4 class="masthead-brand sabores">Sell Food</h4>
+              <nav class="nav nav-masthead justify-content-center">
+                <a class="nav-link active" href="#">Home</a>
+                <a class="nav-link" href="#">Features</a>
+                <a class="nav-link" href="#">Contact</a>
+              </nav>
+            </div>
+          </header>
+
+          <div class="card-principal card text-center">
+              
+            
+            <div class="card-header">
+                <ul class="nav nav-tabs card-header-tabs">
+                  <li class="nav-item">
+                    <a href="#cardapio-tab" class="nav-link active font-weight-bold text-decoration-none" data-toggle="tab">Cardápio</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#personalizado-tab" class="nav-link font-weight-bold text-decoration-none" data-toggle="tab">Link</a>
+                  </li>
+                  <li class="nav-item">
+                    <a href="#resumo-tab" class="nav-link font-weight-bold text-decoration-none" data-toggle="tab">Resumo</a>
+                  </li>
+                </ul>
+              </div>
+
+
+              <div class="card-body">
+
+                  <div class="tab-content">
+
+                      <div class="tab-pane active in" id="cardapio-tab" data-toggle="tab">
+                          
+                        <h3 id="titulo" class="card-title font-weight-bold"></h3>
+                          <ul id="cardapio" class="list-group list-group-flush " ></ul>
+                          <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                      </div> 
+                     
+                      <div class="tab-pane" id="personalizado-tab" data-toggle="tab">
+                        <div class="container">
+                          
+                          <p class="texto row">
+                              Monte um lanche com os ingredientes de sua escolha.
+                          </p>
+                          <p class="row">
+                            <div class="col form-group flex ">
+                              <label for="qtdLanchePersonalizado" class="font-weight-bold">quantidade do lanche</label>
+                              <input id="qtdLanchePersonalizado" class="form-control " type="number" value="1" maxlength="10" min="1" >
+                            </div>
+                          </p>  
+
+                          <div class="row">
+                            <ul id="ingredientes" class="list-group list-group-flush col" ></ul>
+                            
+                                <div class="input-group button-send col">
+                                        <ul id="promocoes" ></ul>
+                                    <div class="input-group-prepend">
+                                      <span class="input-group-text">$</span>
+                                    </div>
+                                    <input id="total" type="text" class="money form-control"  readonly="true">
+                                    <button id="button-aceitar" class="btn btn-secondary" onclick="montarPersonalizado()" >Aceitar</button>
+                                </div>
                               </div>
-                              <div class="btn-group" role="group">
-                                  <button id="button-aceitar" class="btn btn-secondary" onclick="montarPersonalizado()" >Aceitar</button>
-                              </div>
-                        </footer>
+
+                            </div>
+                          </div>
+
+                          <div class="tab-pane" id="resumo-tab" data-toggle="tab">
+                              <ul id="lanches"></ul>
+                          </div>
+
                   </div>
-                
+
+                  <footer>
+                    <div class="input-group button-send">
+                        <div class="input-group-prepend">
+                          <span class="input-group-text">$</span>
+                        </div>
+                        <input id = "totalPedido" type="text" class="money form-control"  readonly="true" value="0">
+                        <button id="button-aceitar" class="btn btn-secondary " onclick="enviarPedido()" >Enviar</button>
+                     </div>
+                </footer>
               </div>
+            </div>
+            
+
     
-        </div>
-        
-        <div class="col-1">
-          
-        </div>
-      
-        <div id="comanda" class="col card">
-            <h3 class="font-weight-bold">Pedido</h3>
-            <div class="accordion" id="accordionExample">
-                    <h2 class="mb-0">
-                      <button class="btn" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-                        Promoções
-                      </button>
-                    </h2>
-            </div>
-            <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
-              <ul id="promocoes" class="list-group"></ul>
-
-            </div>
-            <ul id="lanches" class="list-group"></ul>
-            <footer>
-              <div class="input-group">
-                <div class="input-group-prepend">
-                  <span class="input-group-text">$</span>
-                </div>
-               
-                
-              </div>
-              <div class="btn-toolbar mb-3" role="toolbar" aria-label="Toolbar with button groups">
-                <div class="btn-toolbar justify-content-between d-inline-flex" role="toolbar">
-                    <div class="input-group">
-                      <input id = "totalPedido" type="text" class="money form-control"  readonly="true" value="0">
-                      <div id="preco"></div>
-                    </div>
-                    <div class="btn-group" role="group">
-                      <button id="button-aceitar" class="btn btn-secondary" onclick="enviarPedido()" >Enviar</button>
-                    </div>
-                </div>
-              </div>
-            </footer>
-        </div>
-        
-      </div>
-
-
-        
-    </div>
+          <main role="main" class="inner cover">
+       
 
     <div id="resumo" class="modal" tabindex="-1" role="dialog">
           <div class="modal-dialog modal-dialog-scrollable modal-dialog-centered" role="document">
               <div class="modal-content">
                 <div class="modal-header">
-                  <h5 class="modal-title" id="exampleModalScrollableTitle">Modal title</h5>
+                  <h5 class="modal-title" id="exampleModalScrollableTitle">Resumo da compra</h5>
                   <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                   </button>
@@ -136,22 +136,14 @@
       <div class="modal fade" id="confirmaInclusao" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered" role="document">
           <div class="modal-content">
-            <div class="modal-header">
-              <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
-              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-              </button>
-            </div>
-            <div class="modal-body">
-              <ul id="resumoIngredientes" class="list-group"></ul>
-            </div>
-            <div class="modal-footer">
-              <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-              <button type="button" class="btn btn-primary">Save changes</button>
-            </div>
+              Lanche adicionado ao pedido
           </div>
         </div>
-      </div>
+
+        </div>
+        
+      </main>
+      
 
   </body>
 

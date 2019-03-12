@@ -49,6 +49,7 @@ input[type="number"] {
 
 .ingredientes {
     margin-top: 6px;
+    font-family: Adamina;
 }
 
 .flex {
@@ -74,8 +75,16 @@ input[type="number"] {
 	display: none;
 }
 
-#card-principal{
-    background-image: linear-gradient(to top, #f77202 ,#f7b135);
+.sabores{
+    font-family: Arial, Helvetica, sans-serif;
+    color: aliceblue;
+}
+
+.card-principal{
+    /* background-image: url(../img/background-black-blackboard-159770.jpg); */
+    border: black solid;
+    margin-left: 10%;
+    margin-right: 10%;
 }
 
 .abas{
@@ -88,9 +97,6 @@ h3 {
 
 button{
     background-color: #f77202!important;
-}
-
-.nome{
 }
 
 .moeda{
@@ -113,9 +119,31 @@ a {
 
 .texto{
     margin: 5px;
+    font-family: "Rubik", Sans-serif;
+    font-size: 18px;
+    font-weight: 400;
 }
 
-ul{
+.list-group-flush{
     border-top: whitesmoke solid;
     border-bottom: whitesmoke solid;
+}
+
+footer {
+    margin-top: auto;
+    padding-bottom: 15px;
+}
+
+.button-send{
+    float: right;
+    margin-top: 2%;
+    padding-bottom: inherit;
+}
+
+body {
+    background-image: url(../img/background-hamburger.jpg)
+}
+
+.card-header{
+    background-color: black;
 }

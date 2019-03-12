@@ -9,7 +9,7 @@ $("#ingredientes").ready(() => {
         data.forEach((ingrediente) => {
         $("#ingredientes").prepend(`
         <li id="${ingrediente.nome}" class="ingrediente list-group-item ">
-            <div class="nome  font-weight-bold">${ingrediente.nome}</div>
+            <div class="nome texto">${ingrediente.nome}</div>
         
         <div class="flex">
         <p class="moeda font-weight-bold">R$<p/><div class="preco font-weight-bold">${parseFloat(ingrediente.valor).toFixed(2)}</div>

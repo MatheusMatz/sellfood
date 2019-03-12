@@ -23,15 +23,13 @@ services:
     MYSQL_DATABASE: sabores
    ports:
    - "3306:3306"
-   restart: always
-   volumes:  
-    - ./data/db:/var/lib/mysql  
+   restart: always  
 
   dump:  
-   build: Dumper/  
+   build: Dumper/
    volumes:  
-    - ./Dumper/:/var/db/  
-   command: sh -c "sleep 20 && /usr/bin/mysql -h sabores -u root -psabores < ./backup.sql"  
+    - ./Dumper/:/var/db/    
+   command: sh -c " /usr/bin/mysql -h mysql -uroot -psabores < /var/db/backup.sql"  
    depends_on:  
     - mysql 
   

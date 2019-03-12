@@ -17,6 +17,7 @@ function enviarPedido () {
                     let nomeLanche;
 
                     data.lanches.forEach(lanche => {
+                        
                         let lancheIgual = data.lanches.filter((n) => n["nome"] == lanche.nome);
                         let totalValorLanche = lancheIgual.reduce(( prevVal, elem ) => { return prevVal + elem.valor }, 0 );
                         let qtdLanche = lancheIgual.reduce(( prevVal, elem , index) => { return index});
@@ -41,6 +42,9 @@ function enviarPedido () {
                     $('#totalCompra').text(parseFloat(data.valor).toFixed(2))
             });
 
+            lanches = [];
+
             $(".qtdLanche").val(0);
             $("#totalPedido").val(0);
+            $("#lanchesDoPedido").empty();
         }

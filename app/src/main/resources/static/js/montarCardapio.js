@@ -16,10 +16,12 @@ $("#cardapio").ready(()=>{
           
           data.promocoes.forEach((promocao) => {
               $("#promocoes").prepend(`
-                  <li class="list-group-item">
+                  <li>
+                  <div>
                       <h5 class="mb-1">${promocao.nome}</h5>
                       <small>${promocao.descricao}</small>
                   </div>
+                  </li>
               `);
           });
   
@@ -27,11 +29,11 @@ $("#cardapio").ready(()=>{
               $("#cardapio").prepend(`
               <li id="${lanche.nome}" class="lanche list-group-item card-body">
                   <div class="flex justify-content-between ">
-                      <div class="nome  font-weight-bold">${lanche.nome}</div>
+                      <h5 class="nome texto ">${lanche.nome}</h5>
                   </div>
-                  <div class="font-weight-light ingredientes flex">${renderIngredientes(lanche.ingredientes)}</div>
+                  <div class="ingredientes flex">${renderIngredientes(lanche.ingredientes)}</div>
                     <div class="flex">
-                      <p class="moeda font-weight-bold">R$</p><div class="preco font-weight-bold">${parseFloat(lanche.valor).toFixed(2)}</div>
+                      <p class="moeda">R$</p><div class="preco font-weight-bold">${parseFloat(lanche.valor).toFixed(2)}</div>
                         <div class="button-group flex ">
                             <label class="font-weight-bold">qtd<label/>
                             <input class="qtdLanche form-control" type="number" value="0" maxlength="10" min="0" >
@@ -43,6 +45,7 @@ $("#cardapio").ready(()=>{
   
   
         $(".qtdLanche").change(function() {
+            valorLanchesCardapio = 0; 
               var lanche = $(this).parents('.lanche:eq(0)').attr('id')
               var valor = parseFloat($(this).parent().parent().parent().children('.preco').text());
               var qtd = $(this).val();
@@ -53,15 +56,11 @@ $("#cardapio").ready(()=>{
               montarPedido(lanche,qtd, total)
   
               let resultado = totalPedido.reduce((total, valor)=> total + valor.valor, 0)
+                
+              valorLanchesCardapio = resultado;
   
-  
-              $("#totalPedido").val(parseFloat(resultado.toFixed(2)));
-  
-          });
-  
+            somarLanches();
       });
   
 })
-
-
- 
+})
